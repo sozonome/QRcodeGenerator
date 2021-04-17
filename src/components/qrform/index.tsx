@@ -19,22 +19,25 @@ const QRForm = () => {
   const { values, handleChange } = useFormik<QRFormType>({
     initialValues: {
       value: "https://google.com",
+      fgColor: "#000000",
     },
     onSubmit: () => {},
   });
-  const { value, qrStyle } = values;
+  const { value, qrStyle, fgColor } = values;
 
   return (
     <Grid gap={8} templateColumns={["1", "1", "1fr 2fr"]}>
-      <Center>
-        <Grid gap={2}>
-          <Box id="qr-code">
-            <QRCode size={qrCodeSize} {...values} />
-          </Box>
+      <Box>
+        <Center>
+          <Grid gap={2}>
+            <Box id="qr-code">
+              <QRCode size={qrCodeSize} {...values} />
+            </Box>
 
-          <SaveQRButton />
-        </Grid>
-      </Center>
+            <SaveQRButton />
+          </Grid>
+        </Center>
+      </Box>
 
       <Box>
         <Grid gap={4}>

@@ -27,6 +27,11 @@ const customTheme = extendTheme({
         variant: "filled",
       },
     },
+    Select: {
+      defaultProps: {
+        variant: "filled",
+      },
+    },
   },
 });
 
