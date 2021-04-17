@@ -17,12 +17,16 @@ const customTheme = extendTheme({
     // },
   },
   components: {
-    /** Example */
-    // Button: {
-    //   baseStyle: {
-    //     borderRadius: 24,
-    //   },
-    // },
+    Button: {
+      baseStyle: {
+        borderRadius: 24,
+      },
+    },
+    Input: {
+      defaultProps: {
+        variant: "filled",
+      },
+    },
   },
 });
 
