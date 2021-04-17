@@ -1,14 +1,20 @@
-import { Button } from "@chakra-ui/button";
 import { Box, Center, Grid } from "@chakra-ui/layout";
-import FormInput from "components/ui/FormInput";
+import { useBreakpointValue } from "@chakra-ui/media-query";
 import { useFormik } from "formik";
-import { useRef } from "react";
 import { QRCode } from "react-qrcode-logo";
 
-import { QRFormType } from "./types";
+import FormInput from "components/ui/FormInput";
+import FormSelect from "components/ui/FormSelect";
+import SaveQRButton from "./SaveQRButton";
+
+import { QRFormType, QRStyleOptions } from "./types";
 
 const QRForm = () => {
-  const qrcodeRef = useRef<QRCode>(null);
+  const qrCodeSize = useBreakpointValue({
+    base: 200,
+    sm: 220,
+    md: 200,
+  });
 
   const { values, handleChange } = useFormik<QRFormType>({
     initialValues: {
@@ -16,26 +22,42 @@ const QRForm = () => {
     },
     onSubmit: () => {},
   });
-  const { value } = values;
+  const { value, qrStyle } = values;
 
   return (
-    <Grid gap={8}>
+    <Grid gap={8} templateColumns={["1", "1", "1fr 2fr"]}>
       <Center>
-        <Box>
-          <QRCode ref={qrcodeRef} {...values} size={200} />
-          <Button isFullWidth>Save QR Code</Button>
-        </Box>
+        <Grid gap={2}>
+          <Box id="qr-code">
+            <QRCode size={qrCodeSize} {...values} />
+          </Box>
+
+          <SaveQRButton />
+        </Grid>
       </Center>
 
-      <Grid gap={4}>
-        <FormInput
-          label="Content"
-          name="value"
-          value={value}
-          onChange={handleChange}
-          placeholder="URL / texts"
-        />
-      </Grid>
+      <Box>
+        <Grid gap={4}>
+          <FormInput
+            label="Content"
+            name="value"
+            value={value}
+            onChange={handleChange}
+            placeholder="URL / texts"
+          />
+          <FormSelect
+            label="QR Style"
+            name="qrStyle"
+            value={qrStyle}
+            onChange={handleChange}
+            placeholder="Select QR Style"
+          >
+            {QRStyleOptions.map((qrStyleOption) => (
+              <option value={qrStyleOption}>{qrStyleOption}</option>
+            ))}
+          </FormSelect>
+        </Grid>
+      </Box>
     </Grid>
   );
 };

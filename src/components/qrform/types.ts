@@ -12,3 +12,5 @@ export type QRFormType = Pick<
   | "quietZone"
   | "qrStyle"
 >;
+
+export const QRStyleOptions: Array<IProps["qrStyle"]> = ["dots", "squares"];
