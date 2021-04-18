@@ -1,5 +1,17 @@
 import { Button } from "@chakra-ui/button";
 import {
+  FormControl,
+  FormHelperText,
+  FormLabel,
+} from "@chakra-ui/form-control";
+import {
+  NumberDecrementStepper,
+  NumberIncrementStepper,
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+} from "@chakra-ui/number-input";
+import {
   Popover,
   PopoverArrow,
   PopoverBody,
@@ -9,15 +21,14 @@ import {
   PopoverHeader,
   PopoverTrigger,
 } from "@chakra-ui/popover";
-import FormInput from "components/ui/FormInput";
 import html2canvas from "html2canvas";
-import { ChangeEventHandler, useState } from "react";
+import { useState } from "react";
 
 const SaveQRButton = () => {
   const [size, setSize] = useState<number>(2000);
 
-  const handleSetSize: ChangeEventHandler<HTMLInputElement> = (event) => {
-    setSize(Number(event.target.value));
+  const handleSetSize = (_: string, valueAsNumber: number) => {
+    setSize(isNaN(valueAsNumber) ? 1 : valueAsNumber);
   };
 
   const handleSaveImage = async () => {
@@ -62,12 +73,28 @@ const SaveQRButton = () => {
         <PopoverHeader>configuration</PopoverHeader>
 
         <PopoverBody>
-          <FormInput
-            label="size (px)"
-            type="number"
-            value={size}
-            onChange={handleSetSize}
-          />
+          <FormControl>
+            <FormLabel>size (px)</FormLabel>
+
+            <NumberInput
+              defaultValue={size}
+              value={size}
+              min={1}
+              max={5000}
+              onChange={handleSetSize}
+              clampValueOnBlur
+              variant="filled"
+              size="lg"
+            >
+              <NumberInputField borderRadius={24} />
+              <NumberInputStepper>
+                <NumberIncrementStepper />
+                <NumberDecrementStepper />
+              </NumberInputStepper>
+            </NumberInput>
+
+            <FormHelperText>min: 1, max: 5000</FormHelperText>
+          </FormControl>
         </PopoverBody>
 
         <PopoverFooter>
