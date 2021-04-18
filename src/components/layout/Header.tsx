@@ -5,7 +5,7 @@ import ThemeToggle from "./ThemeToggle";
 
 const Header = () => {
   return (
-    <Flex as="header" width="full" align="center">
+    <Flex as="header" width="full" align="center" alignSelf="flex-start">
       <AccessibleLink href="/">
         <Heading as="h1" size="md">
           QRcodeGen

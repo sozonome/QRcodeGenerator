@@ -4,6 +4,7 @@ const Meta = () => {
   return (
     <Head>
       <title>QR Code Generator</title>
+      <link rel="icon" href="/qr-code.svg" />
     </Head>
   );
 };
