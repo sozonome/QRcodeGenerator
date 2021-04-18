@@ -56,7 +56,9 @@ const QRForm = () => {
             placeholder="Select QR Style"
           >
             {QRStyleOptions.map((qrStyleOption) => (
-              <option value={qrStyleOption}>{qrStyleOption}</option>
+              <option key={qrStyleOption} value={qrStyleOption}>
+                {qrStyleOption}
+              </option>
             ))}
           </FormSelect>
         </Grid>
