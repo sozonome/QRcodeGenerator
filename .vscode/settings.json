@@ -1,0 +1,9 @@
+{
+  "conventionalCommits.scopes": [
+    "layout",
+    "qrform",
+    "pages",
+    "types",
+    "ui"
+  ]
+}
