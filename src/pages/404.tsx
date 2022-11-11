@@ -33,13 +33,13 @@ const Page404 = () => {
 
         <Box textAlign="center" marginTop={4}>
           <Text>It's Okay!</Text>
-          <Link href="/" passHref>
             <Button
+              as={Link}
+              href="/"
               backgroundColor={colorMode === "light" ? "gray.300" : "teal.500"}
             >
               Let's Head Back
             </Button>
-          </Link>
         </Box>
       </Box>
     </>
