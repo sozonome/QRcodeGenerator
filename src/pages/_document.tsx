@@ -15,6 +15,10 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <Meta />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+            rel="stylesheet"
+          />
         </Head>
         <body>
           <ColorModeScript
