@@ -1,6 +1,6 @@
 import { Box } from "@chakra-ui/react";
 
-import QRForm from "components/qrform";
+import QRForm from "lib/components/qrform";
 
 const Home = () => {
   return (

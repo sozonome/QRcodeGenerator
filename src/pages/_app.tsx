@@ -3,9 +3,9 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import "@fontsource/lexend/latin.css";
 
-import Layout from "components/layout";
-import customTheme from "styles/customTheme";
-import "styles/globals.css";
+import Layout from "lib/components/layout";
+import customTheme from "lib/styles/customTheme";
+import "lib/styles/globals.css";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (

@@ -2,8 +2,8 @@ import { Box, Center, Grid, useBreakpointValue } from "@chakra-ui/react";
 import { useFormik } from "formik";
 import { QRCode } from "react-qrcode-logo";
 
-import FormInput from "components/ui/FormInput";
-import FormSelect from "components/ui/FormSelect";
+import FormInput from "lib/components/ui/FormInput";
+import FormSelect from "lib/components/ui/FormSelect";
 
 import SaveQRButton from "./SaveQRButton";
 import type { QRFormType } from "./types";
