@@ -1,10 +1,9 @@
 import { ChakraProvider } from "@chakra-ui/react";
-import { AppProps } from "next/app";
+import type { AppProps } from "next/app";
 import Head from "next/head";
 import "@fontsource/lexend/latin.css";
 
 import Layout from "components/layout";
-
 import customTheme from "styles/customTheme";
 import "styles/globals.css";
 

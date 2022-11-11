@@ -1,7 +1,12 @@
-import { Button } from "@chakra-ui/button";
-import { useColorMode } from "@chakra-ui/color-mode";
-import { Image } from "@chakra-ui/image";
-import { Box, Heading, Text, Link as ChakraLink } from "@chakra-ui/layout";
+import {
+  Box,
+  Button,
+  Heading,
+  Image,
+  Link as ChakraLink,
+  Text,
+  useColorMode,
+} from "@chakra-ui/react";
 import Link from "next/link";
 
 import MotionBox from "components/motion/Box";
@@ -32,14 +37,14 @@ const Page404 = () => {
         <Heading textAlign="center">Page not Found.</Heading>
 
         <Box textAlign="center" marginTop={4}>
-          <Text>It's Okay!</Text>
-            <Button
-              as={Link}
-              href="/"
-              backgroundColor={colorMode === "light" ? "gray.300" : "teal.500"}
-            >
-              Let's Head Back
-            </Button>
+          <Text>It&apos;s Okay!</Text>
+          <Button
+            as={Link}
+            href="/"
+            backgroundColor={colorMode === "light" ? "gray.300" : "teal.500"}
+          >
+            Let&apos;s Head Back
+          </Button>
         </Box>
       </Box>
     </>

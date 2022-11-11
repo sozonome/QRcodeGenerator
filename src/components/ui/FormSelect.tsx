@@ -1,10 +1,10 @@
+import type { FormControlProps, SelectProps } from "@chakra-ui/react";
 import {
   FormControl,
-  FormControlProps,
   FormErrorMessage,
   FormLabel,
-} from "@chakra-ui/form-control";
-import { Select, SelectProps } from "@chakra-ui/select";
+  Select,
+} from "@chakra-ui/react";
 
 type FormSelectProps = Pick<
   FormControlProps,

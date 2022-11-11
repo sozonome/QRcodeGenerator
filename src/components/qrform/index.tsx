@@ -1,13 +1,13 @@
-import { Box, Center, Grid } from "@chakra-ui/layout";
-import { useBreakpointValue } from "@chakra-ui/media-query";
+import { Box, Center, Grid, useBreakpointValue } from "@chakra-ui/react";
 import { useFormik } from "formik";
 import { QRCode } from "react-qrcode-logo";
 
 import FormInput from "components/ui/FormInput";
 import FormSelect from "components/ui/FormSelect";
-import SaveQRButton from "./SaveQRButton";
 
-import { QRFormType, QRStyleOptions } from "./types";
+import SaveQRButton from "./SaveQRButton";
+import type { QRFormType } from "./types";
+import { QRStyleOptions } from "./types";
 
 const QRForm = () => {
   const qrCodeSize = useBreakpointValue({
@@ -23,7 +23,7 @@ const QRForm = () => {
     },
     onSubmit: () => {},
   });
-  const { value, qrStyle, fgColor } = values;
+  const { value, qrStyle } = values;
 
   return (
     <Grid gap={8} templateColumns={["1", "1", "1fr 2fr"]}>

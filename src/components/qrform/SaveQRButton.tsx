@@ -1,17 +1,13 @@
-import { Button } from "@chakra-ui/button";
 import {
+  Button,
   FormControl,
   FormHelperText,
   FormLabel,
-} from "@chakra-ui/form-control";
-import {
   NumberDecrementStepper,
   NumberIncrementStepper,
   NumberInput,
   NumberInputField,
   NumberInputStepper,
-} from "@chakra-ui/number-input";
-import {
   Popover,
   PopoverArrow,
   PopoverBody,
@@ -20,7 +16,7 @@ import {
   PopoverFooter,
   PopoverHeader,
   PopoverTrigger,
-} from "@chakra-ui/popover";
+} from "@chakra-ui/react";
 import html2canvas from "html2canvas";
 import { useState } from "react";
 
@@ -28,34 +24,34 @@ const SaveQRButton = () => {
   const [size, setSize] = useState<number>(2000);
 
   const handleSetSize = (_: string, valueAsNumber: number) => {
-    setSize(isNaN(valueAsNumber) ? 1 : valueAsNumber);
+    setSize(Number.isNaN(valueAsNumber) ? 1 : valueAsNumber);
   };
 
   const handleSaveImage = async () => {
-    html2canvas(document.querySelector("#react-qrcode-logo")!).then(
-      (canvas) => {
-        const resizedCanvas = document.createElement("canvas");
-        resizedCanvas.setAttribute("width", size.toString());
-        resizedCanvas.setAttribute("height", size.toString());
-        let ctx = resizedCanvas.getContext("2d");
-        ctx?.drawImage(
-          canvas,
-          0,
-          0,
-          canvas.width,
-          canvas.height,
-          0,
-          0,
-          size,
-          size
-        );
+    html2canvas(
+      document.querySelector("#react-qrcode-logo") as HTMLElement
+    ).then((canvas) => {
+      const resizedCanvas = document.createElement("canvas");
+      resizedCanvas.setAttribute("width", size.toString());
+      resizedCanvas.setAttribute("height", size.toString());
+      const ctx = resizedCanvas.getContext("2d");
+      ctx?.drawImage(
+        canvas,
+        0,
+        0,
+        canvas.width,
+        canvas.height,
+        0,
+        0,
+        size,
+        size
+      );
 
-        const link = document.createElement("a");
-        link.download = "qrcode.png";
-        link.href = resizedCanvas.toDataURL();
-        link.click();
-      }
-    );
+      const link = document.createElement("a");
+      link.download = "qrcode.png";
+      link.href = resizedCanvas.toDataURL();
+      link.click();
+    });
   };
 
   return (
