@@ -61,7 +61,7 @@ const SaveQRButton = () => {
   return (
     <Popover>
       <PopoverTrigger>
-        <Button colorScheme="blue" isFullWidth>
+        <Button colorScheme="blue" width="full">
           Save QR Code
         </Button>
       </PopoverTrigger>
@@ -98,7 +98,7 @@ const SaveQRButton = () => {
         </PopoverBody>
 
         <PopoverFooter>
-          <Button onClick={handleSaveImage} isFullWidth colorScheme="green">
+          <Button onClick={handleSaveImage} width="full" colorScheme="green">
             Download
           </Button>
         </PopoverFooter>
