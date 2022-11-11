@@ -13,7 +13,7 @@
     "format": "prettier --write src",
     "up": "yarn upgrade-interactive",
     "up-latest": "yarn up --latest",
-    "release": "standard-version",
+    "release": "cross-env HUSKY=0 standard-version",
     "push-release": "git push --follow-tags origin main",
     "prepare": "husky install"
   },
@@ -35,6 +35,7 @@
   "devDependencies": {
     "@types/node": "^18.11.9",
     "@types/react": "^18.0.25",
+    "cross-env": "^7.0.3",
     "eslint": "^8.27.0",
     "eslint-config-next": "^13.0.3",
     "eslint-config-sznm": "^1.0.0",
